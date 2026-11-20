@@ -1,11 +1,11 @@
-# ShelfVision AI 🛒👁️
+# ShelfVision AI 
 ### Smart Retail Shelf Monitoring & Inventory Anomaly Detection Using Computer Vision
 
 > **Real-Time Automated Retail Shelf Monitoring System** combining YOLOv8 object detection, OpenCV spatial shelf region of interest (ROI) zoning, FastAPI backend, and an interactive React + Tailwind CSS dashboard.
 
 ---
 
-## 🌟 Key Highlights & Innovation
+##  Key Highlights & Innovation
 
 * **Live Computer Vision Pipeline**: Detects products, counts inventory per shelf tier/slot, and draws dynamic bounding box overlays in real time (~25–30 FPS).
 * **Multi-Anomaly Detection Engine**:
@@ -18,7 +18,7 @@
 
 ---
 
-## 📐 System Architecture
+##  System Architecture
 
 ```text
        ┌────────────────────────┐
@@ -69,7 +69,7 @@
 
 ---
 
-## 🧮 AI Shelf Health Score (SHS): Mathematical Formulation
+##  AI Shelf Health Score (SHS): Mathematical Formulation
 
 ### Why Is This Metric Necessary?
 Standard Computer Vision systems in retail only output disconnected bounding boxes and raw item counts (e.g., `[x=120, y=240], bottle, count=4`). Store managers cannot monitor hundreds of raw numeric streams.
@@ -125,10 +125,10 @@ $$S = \left(\frac{\sum_{k=1}^K \min(N_k, C_k)}{\sum_{k=1}^K C_k}\right) \times 1
 
 | Score Range | Status Label | Visual Code | Operational Meaning & Store Action |
 | :---: | :---: | :---: | :--- |
-| **85.0 – 100.0** | **EXCELLENT** | 🟢 Green | Optimal state. Shelf well-stocked and compliant. No action required. |
-| **70.0 – 84.9** | **GOOD** | 🔵 Blue | Acceptable state. Minor stock depletion or isolated misplacement. Queue for routine restock. |
-| **50.0 – 69.9** | **WARNING** | 🟡 Amber | Sub-optimal. Multiple sections nearing low-stock thresholds. Restock alert dispatched. |
-| **0.0 – 49.9** | **CRITICAL** | 🔴 Red | Severe anomaly. One or more empty slots or widespread misplacement. Immediate employee intervention dispatched. |
+| **85.0 – 100.0** | **EXCELLENT** |  Green | Optimal state. Shelf well-stocked and compliant. No action required. |
+| **70.0 – 84.9** | **GOOD** |  Blue | Acceptable state. Minor stock depletion or isolated misplacement. Queue for routine restock. |
+| **50.0 – 69.9** | **WARNING** |  Amber | Sub-optimal. Multiple sections nearing low-stock thresholds. Restock alert dispatched. |
+| **0.0 – 49.9** | **CRITICAL** |  Red | Severe anomaly. One or more empty slots or widespread misplacement. Immediate employee intervention dispatched. |
 
 ---
 
@@ -154,7 +154,7 @@ $$\text{SHS} = \frac{(40 \times 75.0) + (35 \times 92.9) + (25 \times 41.2)}{100
 
 ---
 
-## 🚀 Quick Start Guide
+##  Quick Start Guide
 
 ### Prerequisites
 * Python 3.10+ (Python 3.12 recommended)
@@ -187,7 +187,7 @@ Inside the `scripts/` directory:
 
 ---
 
-## 🧪 Automated Pipeline Testing
+##  Automated Pipeline Testing
 
 To verify the database, YOLO detection, anomaly detection, alerts, and Health Score computation in a single command:
 
@@ -217,7 +217,7 @@ ALL TESTS PASSED SUCCESSFULLY! (Pipeline 100% Operational)
 
 ---
 
-## 📊 Survey Insights (Problem Statement Grounding)
+##  Survey Insights (Problem Statement Grounding)
 
 From our study across 82 retail store owners and supermarket employees:
 1. **Most Common Shelf Issues**:
@@ -232,11 +232,11 @@ From our study across 82 retail store owners and supermarket employees:
 
 ---
 
-## 📁 Repository Structure
+##  Repository Structure
 
 ```text
 shelfvision-ai/
-├── README.md                      # Academic & technical documentation
+├── README.md                      # Project documentation
 ├── .gitignore                     # Git ignore rules (.venv, node_modules, .db)
 ├── backend/
 │   ├── .venv/                     # Python 3.12 Virtual Environment
@@ -279,13 +279,3 @@ shelfvision-ai/
     ├── run_frontend.bat           # Quick-start frontend launcher
     └── test_pipeline.py           # Automated end-to-end test suite
 ```
-
----
-
-## 🎓 Academic Presentation & Defense Tips
-
-When presenting this project to evaluators:
-1. **The Hook**: Start with the retail loss statistic: empty shelves and misplaced stock account for over **\$1.7 trillion** in lost revenue annually worldwide.
-2. **The Innovation (Why not just count items?)**: Emphasize that raw bounding boxes are not actionable for managers. The **AI Shelf Health Score** translates raw computer vision data into an objective business metric.
-3. **The Demo**: Open the React dashboard at `http://localhost:5173`. Point out the live video feed with YOLOv8 bounding boxes, show how the radial score adjusts dynamically as stock changes, and resolve an active alert with one click.
-4. **Feasibility**: Highlight that the system runs smoothly on standard hardware (~25–30 FPS on CPU with YOLOv8 nano), eliminating the need for expensive robotic shelf installations.
